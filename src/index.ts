@@ -1,4 +1,5 @@
-const path = require('path');
+import * as  path from 'path';
+import { error, warning } from './common/cmd-styles';
 
 const run = () => {
     const argv = process.argv;
@@ -6,9 +7,14 @@ const run = () => {
         const scriptPath = argv[1];
         const scriptName = path.basename(scriptPath);
         const args = argv.splice(2);
+
+        try {
         require('./' + scriptName + '/index.js').run(args);
+        } catch (err) {
+            console.error(error("ERROR! " + warning(err)));
+        }
     } else {
-        console.error(`This script must be executed within NodeJS.`);
+        console.error(error("ERROR! ") + warning("This script must be executed in NODE!"));
     }
 }
 
