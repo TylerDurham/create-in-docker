@@ -10,7 +10,7 @@ var cmd_styles_1 = require("../common/cmd-styles");
  */
 var run = function (args) {
     if (!(0, docker_1.isDockerInstalled)()) {
-        console.warn("".concat(cmd_styles_1.style.bold(cmd_styles_1.style.error('WARNING!')), " ").concat(cmd_styles_1.style.warning('Docker does not appear to be installed.')));
+        console.warn("".concat((0, cmd_styles_1.bold)((0, cmd_styles_1.error)('WARNING!')), " ").concat((0, cmd_styles_1.warning)('Docker does not appear to be installed.')));
     }
     var parsedArgs = (0, args_1.mongoInDockerArgs)(args);
     console.debug(parsedArgs);
