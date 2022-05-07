@@ -1,5 +1,5 @@
 import path from "path";
-import { IMongoInDockerCmdArgs } from "./interfaces";
+import { IMongoInDockerCmdArgs } from "../common/interfaces";
 
 /**
  * 
@@ -22,14 +22,11 @@ const mongoInDockerArgs = (args: string[]): IMongoInDockerCmdArgs => {
 
     for (let i = 1; i < args.length; i += 2) {
         const key = args[i].toLowerCase().trim();
-        const value = args[i + 1];
-
-        console.debug(`${key}=${value}`)
-
+        
         if (key === "-u" || key === "--uid") {
-            parsedArgs.rootUsername = value;
+            parsedArgs.rootUsername = args[i + 1];
         } else if (key === "-p" || key === "--pwd") {
-            parsedArgs.rootPassword = value;
+            parsedArgs.rootPassword = args[i + 1];
         } else if (key === "-i" || key === "--ime") {
             parsedArgs.includeMongoExpress = true;
         }
@@ -37,6 +34,5 @@ const mongoInDockerArgs = (args: string[]): IMongoInDockerCmdArgs => {
 
     return Object.freeze(parsedArgs);
 }
-
 
 export { mongoInDockerArgs, IMongoInDockerCmdArgs }
