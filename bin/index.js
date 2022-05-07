@@ -1,7 +1,7 @@
 #! /usr/bin/env node
 
 function main() {
-    require('./lib');
+    require('./lib/index.js').run();
 }
 
 if(require.main === module) {
