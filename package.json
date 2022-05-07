@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "",
   "bin": {
-    "create-mongo-in-docker": "./bin/index.js"
+    "create-mongo-in-docker": "./bin/shebang.js"
   },
   "scripts": {
     "build": "./node_modules/.bin/tsc",

@@ -1,7 +1,7 @@
 "use strict";
 exports.__esModule = true;
 exports.run = void 0;
-var args_1 = require("../common/args");
+var args_1 = require("./args");
 var docker_1 = require("../common/docker");
 var cmd_styles_1 = require("../common/cmd-styles");
 /**

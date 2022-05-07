@@ -1,4 +1,4 @@
-import { mongoInDockerArgs } from "../common/args";
+import { mongoInDockerArgs } from "./args";
 import { isDockerInstalled } from "../common/docker";
 import { style } from "../common/cmd-styles";
 
