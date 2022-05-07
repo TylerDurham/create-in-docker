@@ -1,6 +1,11 @@
 import path from "path";
 import { IMongoInDockerCmdArgs } from "./interfaces";
 
+/**
+ * 
+ * @param args 
+ * @returns 
+ */
 const mongoInDockerArgs = (args: string[]): IMongoInDockerCmdArgs => {
     let project = args[0];
     if (project === undefined || project.trim().length === 0) throw "First argument must be project name!"
@@ -32,5 +37,6 @@ const mongoInDockerArgs = (args: string[]): IMongoInDockerCmdArgs => {
 
     return Object.freeze(parsedArgs);
 }
+
 
 export { mongoInDockerArgs, IMongoInDockerCmdArgs }

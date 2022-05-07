@@ -5,6 +5,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 exports.__esModule = true;
 exports.mongoInDockerArgs = void 0;
 var path_1 = __importDefault(require("path"));
+/**
+ *
+ * @param args
+ * @returns
+ */
 var mongoInDockerArgs = function (args) {
     var project = args[0];
     if (project === undefined || project.trim().length === 0)

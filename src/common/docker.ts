@@ -1,6 +1,10 @@
 import { execSync } from "child_process";
 import { style } from "./cmd-styles";
 
+/**
+ * 
+ * @returns 
+ */
 export const isDockerInstalled = () => {
     try {
         console.log(`You are running ${style.ok(execSync("docker -v").toString().trim())}.`);
