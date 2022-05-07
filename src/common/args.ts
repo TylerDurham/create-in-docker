@@ -17,7 +17,7 @@ const mongoInDockerArgs = (args: string[]): IMongoInDockerCmdArgs => {
         rootUsername: undefined,
         rootPassword: undefined,
         includeMongoExpress: false,
-        port: 21710
+        port: 27017
     }
 
     for (let i = 1; i < args.length; i += 2) {

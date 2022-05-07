@@ -21,7 +21,7 @@ var mongoInDockerArgs = function (args) {
         rootUsername: undefined,
         rootPassword: undefined,
         includeMongoExpress: false,
-        port: 21710
+        port: 27017
     };
     for (var i = 1; i < args.length; i += 2) {
         var key = args[i].toLowerCase().trim();
