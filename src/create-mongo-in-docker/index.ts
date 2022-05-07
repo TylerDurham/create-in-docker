@@ -1,6 +1,7 @@
 import { mongoInDockerArgs } from "./args";
 import { isDockerInstalled } from "../common/docker";
 import { error, bold, warning } from "../common/cmd-styles";
+import * as project from '../common/project';
 
 /**
  * 
@@ -12,7 +13,7 @@ const run = (args: string[]) => {
     }
 
     const parsedArgs = mongoInDockerArgs(args);
-    console.debug(parsedArgs);
+    project.ensure(parsedArgs);
 }
 
 export { run }
