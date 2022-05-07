@@ -7,6 +7,6 @@ exports.bold = exports.ok = exports.warning = exports.error = exports.keywords =
 var chalk_1 = __importDefault(require("chalk"));
 exports.keywords = chalk_1["default"].magenta;
 exports.error = chalk_1["default"].red;
-exports.warning = chalk_1["default"].yellow;
+exports.warning = chalk_1["default"].yellowBright;
 exports.ok = chalk_1["default"].green;
 exports.bold = chalk_1["default"].bold;
