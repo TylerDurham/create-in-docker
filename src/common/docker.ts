@@ -1,5 +1,5 @@
 import { execSync } from "child_process";
-import { style } from "./style";
+import { style } from "./cmd-styles";
 
 export const isDockerInstalled = () => {
     try {

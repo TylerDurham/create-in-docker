@@ -1,16 +1,16 @@
 {
-  "name": "create-mongodb-in-docker",
+  "name": "create-in-docker",
   "version": "0.0.1",
   "description": "",
   "bin": {
-    "create-mongodb-in-docker": "./bin/index.js"
+    "create-mongo-in-docker": "./bin/index.js"
   },
   "scripts": {
     "build": "./node_modules/.bin/tsc",
     "clean": "rm -rf ./bin/lib/",
     "watch": "./node_modules/.bin/tsc --watch",
     "link": "npm link",
-    "unlink": "npm unlink create-mongodb-in-docker && npm uninstall -g create-mongodb-in-docker"
+    "unlink": "npm unlink create-mongo-in-docker && npm uninstall -g create-mongo-in-docker"
   },
   "keywords": [],
   "author": "TylerDurham <TylerDurham@users.noreply.github.com> (https://github.com/TylerDurham)",

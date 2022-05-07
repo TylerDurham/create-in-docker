@@ -2,14 +2,14 @@
 exports.__esModule = true;
 exports.isDockerInstalled = void 0;
 var child_process_1 = require("child_process");
-var style_1 = require("./style");
+var cmd_styles_1 = require("./cmd-styles");
 var isDockerInstalled = function () {
     try {
-        console.log("You are running ".concat(style_1.style.ok((0, child_process_1.execSync)("docker -v").toString().trim()), "."));
+        console.log("You are running ".concat(cmd_styles_1.style.ok((0, child_process_1.execSync)("docker -v").toString().trim()), "."));
         return true;
     }
     catch (err) {
-        console.log(style_1.style.error(err));
+        console.log(cmd_styles_1.style.error(err));
         return false;
     }
 };
