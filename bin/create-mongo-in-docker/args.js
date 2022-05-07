@@ -13,7 +13,7 @@ var path_1 = __importDefault(require("path"));
 var mongoInDockerArgs = function (args) {
     var project = args[0];
     if (project === undefined || project.trim().length === 0)
-        throw "First argument must be project name!";
+        throw "First argument must be project name! Enter '.' to use current directory.";
     project = project.trim();
     var parsedArgs = {
         cwd: path_1["default"].resolve(project),

@@ -8,7 +8,7 @@ import { IMongoInDockerCmdArgs } from "../common/interfaces";
  */
 const mongoInDockerArgs = (args: string[]): IMongoInDockerCmdArgs => {
     let project = args[0];
-    if (project === undefined || project.trim().length === 0) throw "First argument must be project name!"
+    if (project === undefined || project.trim().length === 0) throw "First argument must be project name! Enter '.' to use current directory."
     project = project.trim();
 
     const parsedArgs = {
