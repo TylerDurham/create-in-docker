@@ -2,7 +2,7 @@
     "compilerOptions": {
         "module": "CommonJS",
         "esModuleInterop": true,
-        "outDir": "bin/lib"
+        "outDir": "./bin/lib"
     }, "include": [
         "./src/**/*.ts"
     ]
