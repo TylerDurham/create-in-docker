@@ -1,6 +1,6 @@
 import { mongoInDockerArgs } from "./args";
 import { isDockerInstalled } from "../common/docker";
-import { style } from "../common/cmd-styles";
+import { error, bold, warning } from "../common/cmd-styles";
 
 /**
  * 
@@ -8,7 +8,7 @@ import { style } from "../common/cmd-styles";
  */
 const run = (args: string[]) => {
     if (!isDockerInstalled()) {
-        console.warn(`${style.bold(style.error('WARNING!'))} ${style.warning('Docker does not appear to be installed.')}`);
+        console.warn(`${bold(error('WARNING!'))} ${warning('Docker does not appear to be installed.')}`);
     }
 
     const parsedArgs = mongoInDockerArgs(args);
