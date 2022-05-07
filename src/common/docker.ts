@@ -1,9 +1,9 @@
-import { execSync } from "child_process";
-import { style } from "./cmd-styles";
+import { execSync } from 'child_process';
+import { style } from './cmd-styles';
 
 /**
- * 
- * @returns 
+ * Checks if Docker is installed.
+ * @returns TRUE if Docker is installed, FALSE if Docker is not installed.
  */
 export const isDockerInstalled = () => {
     try {

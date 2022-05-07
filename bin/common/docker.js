@@ -4,8 +4,8 @@ exports.isDockerInstalled = void 0;
 var child_process_1 = require("child_process");
 var cmd_styles_1 = require("./cmd-styles");
 /**
- *
- * @returns
+ * Checks if Docker is installed.
+ * @returns TRUE if Docker is installed, FALSE if Docker is not installed.
  */
 var isDockerInstalled = function () {
     try {
