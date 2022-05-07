@@ -9,6 +9,8 @@ function main() {
         const scriptName = path.basename(scriptPath);
         const args = argv.splice(2);
         require('./' + scriptName + '/index.js').run(args);
+    } else {
+        console.error(`This script must be executed within NodeJS.`);
     }
 }
 
