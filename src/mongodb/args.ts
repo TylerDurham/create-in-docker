@@ -13,7 +13,7 @@ const mongoInDockerArgs = (args: string[]): IMongoInDockerCmdArgs => {
 
     const parsedArgs = {
         cwd: path.resolve(project),
-        project: project,
+        project: project === '.' ? path.basename(path.resolve(project)) : project,
         rootUsername: undefined,
         rootPassword: undefined,
         includeMongoExpress: false,
@@ -29,10 +29,19 @@ const mongoInDockerArgs = (args: string[]): IMongoInDockerCmdArgs => {
             parsedArgs.rootPassword = args[i + 1];
         } else if (key === "-i" || key === "--ime") {
             parsedArgs.includeMongoExpress = true;
+        } else if (key === "-n" || key === "--name") {
+            parsedArgs.project = args[i + 1];
+        } else if (key === "--port") {
+            parsedArgs.port = convertToNumber(args[i + 1], parsedArgs.port);
         }
     }
 
     return Object.freeze(parsedArgs);
+}
+
+const convertToNumber = (value: string, defaultValue: number) => {
+    try { return parseInt(value); } 
+    catch { return defaultValue}
 }
 
 export { mongoInDockerArgs, IMongoInDockerCmdArgs }

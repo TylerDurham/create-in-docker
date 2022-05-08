@@ -49,6 +49,36 @@ exports.isDockerInstalled = isDockerInstalled;
 
 /***/ }),
 
+/***/ 602:
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.ensure = void 0;
+const path_1 = __importDefault(__webpack_require__(17));
+const fs_1 = __importDefault(__webpack_require__(147));
+const cmd_styles_1 = __webpack_require__(81);
+const ensure = (args, buffer) => {
+    const { cwd } = args;
+    try {
+        console.debug(`Writing to ENV file ${(0, cmd_styles_1.keywords)(".env")}.`);
+        fs_1.default.writeFileSync(path_1.default.join(cwd, '.env'), buffer.toString() + "\n", { flag: 'a+' });
+        return true;
+    }
+    catch (err) {
+        console.error(`ERROR writing to "${path_1.default.join(cwd, '.env')}": ${err}`);
+        return false;
+    }
+};
+exports.ensure = ensure;
+
+
+/***/ }),
+
 /***/ 141:
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
@@ -297,14 +327,10 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.run = exports.ensureEnv = void 0;
+exports.run = exports.buffer = void 0;
 const project = __importStar(__webpack_require__(141));
-const fs_1 = __importDefault(__webpack_require__(147));
-const path_1 = __importDefault(__webpack_require__(17));
+const env = __importStar(__webpack_require__(602));
 const cmd_styles_1 = __webpack_require__(81);
 const docker_1 = __webpack_require__(228);
 const args_1 = __webpack_require__(434);
@@ -318,26 +344,19 @@ const run = (args) => {
     }
     const parsedArgs = (0, args_1.mongoInDockerArgs)(args);
     project.ensure(parsedArgs);
-    (0, exports.ensureEnv)(parsedArgs);
+    env.ensure(parsedArgs, (0, exports.buffer)(parsedArgs));
 };
 exports.run = run;
-const ensureEnv = (args) => {
-    const { cwd, rootUsername, rootPassword, port, project } = args;
+const buffer = (args) => {
+    const { rootUsername, rootPassword, port, project } = args;
     const buffer = [];
     buffer.push(`MONGO_ROOT_USER=${rootUsername}`);
     buffer.push(`MONGO_ROOT_PASSWORD=${rootPassword}`);
     buffer.push(`MONGO_SERVER_PORT=${port}`);
     buffer.push(`CONTAINER_NAME=${project}`);
-    try {
-        fs_1.default.writeFileSync(path_1.default.join(cwd, '.env'), buffer.join("\n") + "\n", { flag: 'a+' });
-        return true;
-    }
-    catch (err) {
-        console.error(`ERROR writing to "${path_1.default.join(cwd, '.env')}": ${err}`);
-        return false;
-    }
+    return buffer.join("\n") + "\n";
 };
-exports.ensureEnv = ensureEnv;
+exports.buffer = buffer;
 
 
 /***/ }),
