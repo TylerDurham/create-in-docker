@@ -1,6 +1,6 @@
 {
   "name": "create-in-docker",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "",
   "bin": {
     "create-mongo-in-docker": "./bin/index.js"
