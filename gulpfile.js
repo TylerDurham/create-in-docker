@@ -58,7 +58,7 @@ _watch.description = `Watches over files and runs ${keywords("build")} when they
 exports.watch = _watch;
 
 const _publish = () => {
-    return exec(`npm version path`, (err, stdout, stdin) => {
+    return exec(`npm version patch`, (err, stdout, stdin) => {
         if (err) { console.error(err); }
         else { 
             console.log(stdout);
