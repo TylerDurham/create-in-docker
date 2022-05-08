@@ -2,7 +2,9 @@
     "compilerOptions": {
         "module": "CommonJS",
         "esModuleInterop": true,
-        "outDir": "./bin"
+        "moduleResolution": "node",
+        "outDir": "./build",
+        "target": "ES2016"
     }, "include": [
         "./src/**/*.ts"
     ]

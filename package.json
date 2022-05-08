@@ -3,12 +3,20 @@
   "version": "0.1.0",
   "description": "",
   "bin": {
-    "create-mongo-in-docker": "./bin/shebang.js"
+    "create-mongo-in-docker": "./bin/index.js"
   },
+  "files": [
+    "./bin/index.js",
+    "./bin/bundle.js"
+  ],
   "scripts": {
-    "build": "./node_modules/.bin/tsc",
-    "clean": "rm -rf ./bin/common && rm -rf ./bin/create-*",
-    "watch": "./node_modules/.bin/tsc --watch",
+    "build": "npm run compile && npm run bundle",
+    "compile": "tsc",
+    "bundle": "webpack-cli",
+    "clean": "rm ./bin/bundle.js",
+    "watch-compile": "tsc --watch",
+    "watch-bundle": "webpack-cli --watch",
+    "watch": "concurrently npm:watch-*",
     "link": "npm link",
     "unlink": "npm unlink create-mongo-in-docker && npm uninstall -g create-mongo-in-docker"
   },
@@ -21,7 +29,11 @@
   },
   "devDependencies": {
     "@types/node": "^17.0.31",
+    "concurrently": "^7.1.0",
     "del": "^6.0.0",
-    "typescript": "^4.6.4"
+    "ts-loader": "^9.3.0",
+    "typescript": "^4.6.4",
+    "webpack": "^5.72.0",
+    "webpack-node-externals": "^3.0.0"
   }
 }
