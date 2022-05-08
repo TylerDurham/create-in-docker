@@ -1,10 +1,10 @@
 /******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
 /***/ 81:
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
-"use strict";
 
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
@@ -24,7 +24,6 @@ exports.bold = chalk_1.default.bold;
 /***/ 228:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
-"use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.isDockerInstalled = void 0;
@@ -52,7 +51,6 @@ exports.isDockerInstalled = isDockerInstalled;
 /***/ 141:
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
-"use strict";
 
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -129,10 +127,9 @@ const ensurePackageJson = (args) => {
 
 /***/ }),
 
-/***/ 502:
+/***/ 434:
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
-"use strict";
 
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
@@ -177,10 +174,9 @@ exports.mongoInDockerArgs = mongoInDockerArgs;
 
 /***/ }),
 
-/***/ 192:
+/***/ 119:
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
-"use strict";
 
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -207,7 +203,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.run = void 0;
-const args_1 = __webpack_require__(502);
+const args_1 = __webpack_require__(434);
 const docker_1 = __webpack_require__(228);
 const cmd_styles_1 = __webpack_require__(81);
 const project = __importStar(__webpack_require__(141));
@@ -227,90 +223,9 @@ exports.run = run;
 
 /***/ }),
 
-/***/ 880:
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-"use strict";
-
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
-};
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-const path = __importStar(__webpack_require__(17));
-const cmd_styles_1 = __webpack_require__(81);
-const argv = process.argv; // Get args
-if (argv.length >= 2) {
-    // NODE SCRIPT <args>
-    const scriptPath = argv[1];
-    const scriptName = path.basename(scriptPath);
-    const args = argv.splice(2);
-    try {
-        __webpack_require__(644)("./" + scriptName + "/index.js").run(args);
-    }
-    catch (err) {
-        console.error((0, cmd_styles_1.error)("ERROR! " + (0, cmd_styles_1.warning)(err)));
-    }
-}
-else {
-    console.error((0, cmd_styles_1.error)("ERROR! ") + (0, cmd_styles_1.warning)("This script must be executed in NODE!"));
-}
-
-
-/***/ }),
-
-/***/ 644:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-var map = {
-	"./create-mongo-in-docker/index.js": 192
-};
-
-
-function webpackContext(req) {
-	var id = webpackContextResolve(req);
-	return __webpack_require__(id);
-}
-function webpackContextResolve(req) {
-	if(!__webpack_require__.o(map, req)) {
-		var e = new Error("Cannot find module '" + req + "'");
-		e.code = 'MODULE_NOT_FOUND';
-		throw e;
-	}
-	return map[req];
-}
-webpackContext.keys = function webpackContextKeys() {
-	return Object.keys(map);
-};
-webpackContext.resolve = webpackContextResolve;
-module.exports = webpackContext;
-webpackContext.id = 644;
-
-/***/ }),
-
 /***/ 22:
 /***/ ((module) => {
 
-"use strict";
 module.exports = require("chalk");
 
 /***/ }),
@@ -318,7 +233,6 @@ module.exports = require("chalk");
 /***/ 493:
 /***/ ((module) => {
 
-"use strict";
 module.exports = require("child_process");
 
 /***/ }),
@@ -326,7 +240,6 @@ module.exports = require("child_process");
 /***/ 147:
 /***/ ((module) => {
 
-"use strict";
 module.exports = require("fs");
 
 /***/ }),
@@ -334,7 +247,6 @@ module.exports = require("fs");
 /***/ 17:
 /***/ ((module) => {
 
-"use strict";
 module.exports = require("path");
 
 /***/ })
@@ -366,17 +278,11 @@ module.exports = require("path");
 /******/ 	}
 /******/ 	
 /************************************************************************/
-/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
-/******/ 	(() => {
-/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
-/******/ 	})();
-/******/ 	
-/************************************************************************/
 /******/ 	
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module is referenced by other modules so it can't be inlined
-/******/ 	var __webpack_exports__ = __webpack_require__(880);
+/******/ 	var __webpack_exports__ = __webpack_require__(119);
 /******/ 	
 /******/ })()
 ;
