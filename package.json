@@ -1,6 +1,6 @@
 {
   "name": "create-in-docker",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "",
   "bin": {
     "create-in-docker": "./bin/_index.js"
