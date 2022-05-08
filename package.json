@@ -1,13 +1,12 @@
 {
   "name": "create-in-docker",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "",
   "bin": {
-    "create-mongo-in-docker": "./bin/index.js"
+    "create-in-docker": "./bin/_index.js"
   },
   "files": [
-    "./bin/index.js",
-    "./bin/bundle.js"
+    "./bin/**/*.*"
   ],
   "scripts": {
     "build": "npm run compile && npm run bundle",

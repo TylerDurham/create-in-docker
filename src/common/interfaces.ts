@@ -3,6 +3,7 @@ export interface ICmdContext {
 }
 
 export interface ICmdArgs {
+    name?: string;
     cwd: string;
     project: string;
 }
