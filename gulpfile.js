@@ -6,6 +6,10 @@ const keywords = chalk.magentaBright;
 const path = require('path');
 const tscConfig = require('./tsconfig.json');
 const webPackConfig = require('./webpack.config');
+const readline = require('readline').createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
 
 const PATHS = {
     BUNDLE: {
@@ -59,16 +63,19 @@ exports.watch = _watch;
 
 const _publish = () => {
     return exec(`npm version patch`, (err, stdout, stdin) => {
-        if (err) { console.error(err); }
+        if (err) { console.error(err); return; }
         else { 
             console.log(stdout);
         }
 
-        return exec(`npm publish`, (err, stdout, stderr) => {
-            if (err) { console.error(err); }
-            else { console.log(stdout); }
+        return readline.question(`Please enter your one time passcode:`, (otp) => {
+            return exec(`npm publish --otp ${otp}`, (err, stdout, stderr) => {
+                if (err) { console.error(err); }
+                else { console.log(stdout); }
+            });
         })
     });
 }
 _publish.description = `Rev's the version patch level, and publishes the package to the NPM repository.`
 exports.publish = _publish;
+
