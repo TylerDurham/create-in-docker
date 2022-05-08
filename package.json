@@ -5,6 +5,11 @@
   "bin": {
     "create-in-docker": "./bin/_index.js"
   },
+  "files": [
+    "bin/_index.js",
+    "bin/index.js",
+    "bin/mongodb.js"
+  ],
   "scripts": {
     "build": "npm run compile && npm run bundle",
     "compile": "tsc",
