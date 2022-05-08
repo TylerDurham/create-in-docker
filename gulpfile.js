@@ -70,4 +70,4 @@ const _publish = () => {
         })
     });
 }
-exports.pubish = _publish;
+exports.publish = _publish;
