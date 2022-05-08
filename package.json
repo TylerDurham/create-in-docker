@@ -5,9 +5,6 @@
   "bin": {
     "create-in-docker": "./bin/_index.js"
   },
-  "files": [
-    "bin"
-  ],
   "scripts": {
     "build": "npm run compile && npm run bundle",
     "compile": "tsc",
