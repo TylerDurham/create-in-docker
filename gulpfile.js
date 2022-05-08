@@ -1,11 +1,11 @@
-const exec = require('child_process').exec;
-const del = require('del');
 const { series, src, dest, watch } = require ('gulp');
+const chalk = require('chalk');
+const del = require('del');
+const exec = require('child_process').exec;
+const keywords = chalk.magentaBright;
 const path = require('path');
 const tscConfig = require('./tsconfig.json');
 const webPackConfig = require('./webpack.config');
-const chalk = require('chalk');
-const keywords = chalk.magentaBright;
 
 const PATHS = {
     BUNDLE: {
@@ -70,4 +70,5 @@ const _publish = () => {
         })
     });
 }
+_publish.description = `Rev's the version patch level, and publishes the package to the NPM repository.`
 exports.publish = _publish;
