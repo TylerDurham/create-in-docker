@@ -6,8 +6,7 @@
     "create-mongo-in-docker": "./bin/index.js"
   },
   "files": [
-    "./bin/index.js",
-    "./bin/bundle.js"
+    "./bin/**/*.*"
   ],
   "scripts": {
     "build": "npm run compile && npm run bundle",
