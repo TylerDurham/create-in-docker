@@ -3,7 +3,7 @@ import * as env from '../common/env';
 import { bold, error, warning } from '../common/cmd-styles';
 import { IMongoInDockerCmdArgs } from '../common/interfaces';
 import { isDockerInstalled } from '../common/docker';
-import { mongoInDockerArgs } from './args';
+import { mongoInDockerArgs } from './args'; 
 
 /**
  * 
