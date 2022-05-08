@@ -1,6 +1,6 @@
 {
   "name": "create-in-docker",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "A simple NPX script to quickly setup [Mongo DB] in a [Docker] Container within an NPM project. You can run this command to add [Mongo DB] to an existing project or you can create a new one -- the script detects your existing ```package.json``` file if it exists, and creates a new one if it doesn't.",
   "bin": {
     "create-in-docker": "bin/_index.js"
