@@ -6,6 +6,7 @@ const keywords = chalk.magentaBright;
 const path = require('path');
 const tscConfig = require('./tsconfig.json');
 const webPackConfig = require('./webpack.config');
+const pkg = require('./package.json');
 const readline = require('readline').createInterface({
     input: process.stdin,
     output: process.stdout
@@ -79,3 +80,10 @@ const _publish = () => {
 _publish.description = `Rev's the version patch level, and publishes the package to the NPM repository.`
 exports.publish = _publish;
 
+const _uninstall = (done) => {
+    return exec(`npm uninstall -g ${pkg.name}`, (err, stdout, stdin) => {
+        if (err) { console.error(err); }
+        else { console.log(stdout) }
+    });
+}
+exports.uninstall = _uninstall;
