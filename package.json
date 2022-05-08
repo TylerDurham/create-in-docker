@@ -1,9 +1,9 @@
 {
   "name": "create-in-docker",
   "version": "0.3.2",
-  "description": "",
+  "description": "A simple NPX script to quickly setup [Mongo DB] in a [Docker] Container within an NPM project. You can run this command to add [Mongo DB] to an existing project or you can create a new one -- the script detects your existing ```package.json``` file if it exists, and creates a new one if it doesn't.",
   "bin": {
-    "create-in-docker": "./bin/_index.js"
+    "create-in-docker": "bin/_index.js"
   },
   "files": [
     "bin/_index.js",
@@ -36,5 +36,14 @@
     "typescript": "^4.6.4",
     "webpack": "^5.72.0",
     "webpack-node-externals": "^3.0.0"
-  }
+  },
+  "main": "webpack.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TylerDurham/create-in-docker.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TylerDurham/create-in-docker/issues"
+  },
+  "homepage": "https://github.com/TylerDurham/create-in-docker#readme"
 }
