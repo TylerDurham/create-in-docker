@@ -149,7 +149,7 @@ const mongoInDockerArgs = (args) => {
     project = project.trim();
     const parsedArgs = {
         cwd: path_1.default.resolve(project),
-        project: project,
+        project: project === '.' ? path_1.default.basename(path_1.default.resolve(project)) : project,
         rootUsername: undefined,
         rootPassword: undefined,
         includeMongoExpress: false,
@@ -166,10 +166,24 @@ const mongoInDockerArgs = (args) => {
         else if (key === "-i" || key === "--ime") {
             parsedArgs.includeMongoExpress = true;
         }
+        else if (key === "-n" || key === "--name") {
+            parsedArgs.project = args[i + 1];
+        }
+        else if (key === "--port") {
+            parsedArgs.port = convertToNumber(args[i + 1], parsedArgs.port);
+        }
     }
     return Object.freeze(parsedArgs);
 };
 exports.mongoInDockerArgs = mongoInDockerArgs;
+const convertToNumber = (value, defaultValue) => {
+    try {
+        return parseInt(value);
+    }
+    catch (_a) {
+        return defaultValue;
+    }
+};
 
 
 /***/ }),
@@ -201,12 +215,17 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.run = void 0;
-const args_1 = __webpack_require__(434);
-const docker_1 = __webpack_require__(228);
-const cmd_styles_1 = __webpack_require__(81);
+exports.run = exports.ensureEnv = void 0;
 const project = __importStar(__webpack_require__(141));
+const fs_1 = __importDefault(__webpack_require__(147));
+const path_1 = __importDefault(__webpack_require__(17));
+const cmd_styles_1 = __webpack_require__(81);
+const docker_1 = __webpack_require__(228);
+const args_1 = __webpack_require__(434);
 /**
  *
  * @param args
@@ -217,8 +236,26 @@ const run = (args) => {
     }
     const parsedArgs = (0, args_1.mongoInDockerArgs)(args);
     project.ensure(parsedArgs);
+    (0, exports.ensureEnv)(parsedArgs);
 };
 exports.run = run;
+const ensureEnv = (args) => {
+    const { cwd, rootUsername, rootPassword, port, project } = args;
+    const buffer = [];
+    buffer.push(`MONGO_ROOT_USER=${rootUsername}`);
+    buffer.push(`MONGO_ROOT_PASSWORD=${rootPassword}`);
+    buffer.push(`MONGO_SERVER_PORT=${port}`);
+    buffer.push(`CONTAINER_NAME=${project}`);
+    try {
+        fs_1.default.writeFileSync(path_1.default.join(cwd, '.env'), buffer.join("\n") + "\n", { flag: 'a+' });
+        return true;
+    }
+    catch (err) {
+        console.error(`ERROR writing to "${path_1.default.join(cwd, '.env')}": ${err}`);
+        return false;
+    }
+};
+exports.ensureEnv = ensureEnv;
 
 
 /***/ }),
