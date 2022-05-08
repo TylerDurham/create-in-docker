@@ -42,7 +42,7 @@ const _bundle = () => {
     return exec(`webpack-cli`, (err, stdout, stdin) => {
         if (err) { console.error(err); }
         else { console.log(stdout) }
-    })
+    });
 }
 _bundle.description = `Runs the ${keywords("WebPack")} bundler against the project and outputs to "${keywords(PATHS.BUNDLE.OUTDIR)}".`
 exports.bundle = _bundle;
@@ -56,3 +56,17 @@ const _watch = () => {
 }
 _watch.description = `Watches over files and runs ${keywords("build")} when they change.`
 exports.watch = _watch;
+
+const _publish = () => {
+    return exec(`npm version path`, (err, stdout, stdin) => {
+        if (err) { console.error(err); }
+        else { 
+            console.log(stdout);
+        }
+
+        return exec(`npm publish`, (err, stdout, stderr) => {
+            if (err) { console.error(err); }
+            else { console.log(stdout); }
+        })
+    });
+}
