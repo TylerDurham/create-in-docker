@@ -1,9 +1,11 @@
 import * as project from '../common/project';
 import * as env from '../common/env';
+import * as compose from './compose';
 import { bold, error, warning } from '../common/cmd-styles';
 import { IMongoInDockerCmdArgs } from '../common/interfaces';
 import { isDockerInstalled } from '../common/docker';
 import { mongoInDockerArgs } from './args'; 
+import { parse } from 'path';
 
 /**
  * 
@@ -17,6 +19,7 @@ const run = (args: string[]) => {
     const parsedArgs = mongoInDockerArgs(args);
     project.ensure(parsedArgs);
     env.ensure(parsedArgs, buffer(parsedArgs));
+    compose.ensure(parsedArgs);
 }
 
 export const buffer = (args: IMongoInDockerCmdArgs) => {
