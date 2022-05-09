@@ -5,7 +5,6 @@ import { bold, error, warning } from '../common/cmd-styles';
 import { IMongoInDockerCmdArgs } from '../common/interfaces';
 import { isDockerInstalled } from '../common/docker';
 import { mongoInDockerArgs } from './args'; 
-import { parse } from 'path';
 
 /**
  * 
