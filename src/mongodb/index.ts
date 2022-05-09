@@ -1,4 +1,4 @@
-import * as project from '../common/project';
+import * as project from '../common/package';
 import * as env from '../common/env';
 import * as compose from './compose';
 import { bold, error, warning } from '../common/cmd-styles';
