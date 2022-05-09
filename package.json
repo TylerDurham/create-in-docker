@@ -1,6 +1,6 @@
 {
   "name": "create-in-docker",
-  "version": "0.3.10",
+  "version": "0.3.11",
   "description": "An NPX script to quickly setup deveopment assets in a Docker Container within an NPM project.",
   "main": "bin/shebang.js",
   "bin": {
